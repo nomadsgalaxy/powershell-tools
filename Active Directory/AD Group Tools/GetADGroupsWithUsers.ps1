@@ -1,3 +1,9 @@
+#This script is a simple copy and paste into a powershell window. It will export a CSV file with all AD groups and their members. This is useful for auditing purposes.
+#Please be sure to update the path to the CSV file to your desired location.
+
+#Import the AD module
+Import-Module ActiveDirectory
+
 # Get all AD groups and their members
 $groups = Get-ADGroup -Filter * -Properties Members |
 Where-Object { $_.Members.Count -gt 0 } |
